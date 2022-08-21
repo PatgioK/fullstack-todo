@@ -1,0 +1,8 @@
+init express 
+npm i express @types/express
+touch server.ts
+npx tsc --init
+
+in package.json "scripts": {
+"dev": "npx nodemon --watch './**/*.ts' --exec 'ts-node' server.ts"
+}

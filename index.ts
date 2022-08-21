@@ -5,7 +5,8 @@ const prisma = new PrismaClient()
 async function main() {
   // ... you will write your Prisma Client queries here
 
-  const todos = prisma.todo.findMany();
+  const todos = await prisma.todo.findMany();
+  console.log(todos);
 }
 
 main()
