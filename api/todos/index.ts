@@ -12,14 +12,16 @@ router.get("/", async (req, res) => {
 });
 
 router.post("/", async (req, res) => {
-    prisma.todo.create({
+    await prisma.todo.create({
         data: {
             body: req.body.body,
             dueDate: req.body.dueDate,
             title: req.body.title,
-            
+
         }
     })
+    
+    res.json({success: true});
 });
 
 export default router;

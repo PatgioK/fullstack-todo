@@ -6,3 +6,5 @@ npx tsc --init
 in package.json "scripts": {
 "dev": "npx nodemon --watch './**/*.ts' --exec 'ts-node' server.ts"
 }
+
+npm run dev
