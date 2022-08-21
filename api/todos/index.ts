@@ -17,11 +17,39 @@ router.post("/", async (req, res) => {
             body: req.body.body,
             dueDate: req.body.dueDate,
             title: req.body.title,
-
         }
     })
     
     res.json({success: true});
 });
+
+// + coerces string into number same as parseint
+router.patch("/:id", async (req, res) => {
+    await prisma.todo.update({
+        where: {
+            // id: parseInt(req.params.id)
+            id: +req.params.id
+        },
+        data: {
+            body: req.body.body,
+            dueDate: req.body.dueDate,
+            title: req.body.title,
+            isComplete: req.body.isComplete
+        }
+    })
+
+    res.json({success: true})
+})
+
+router.delete("/:id", async (req, res) => {
+    await prisma.todo.delete({
+        where: {
+            id: parseInt(req.params.id)
+        }
+    })
+
+    res.json({success: true})
+})
+
 
 export default router;
