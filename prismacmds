@@ -1,0 +1,3 @@
+whenever change schema?
+
+npx prisma migrate dev --name init
