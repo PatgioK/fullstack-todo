@@ -1,5 +1,6 @@
 import { Router } from "express";
 import { PrismaClient } from '@prisma/client'
+import { title } from "process";
 
 const prisma = new PrismaClient()
 
@@ -14,6 +15,8 @@ router.post("/", async (req, res) => {
     prisma.todo.create({
         data: {
             body: req.body.body,
+            dueDate: req.body.dueDate,
+            title: req.body.title,
             
         }
     })
