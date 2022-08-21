@@ -11,6 +11,15 @@ router.get("/", async (req, res) => {
     res.json(todos);
 });
 
+router.get("/:id", async (req, res) => {
+    const todo = await prisma.todo.findUnique({
+        where: {
+            id: +req.params.id
+        }
+    })
+    res.json(todo)
+})
+
 router.post("/", async (req, res) => {
     await prisma.todo.create({
         data: {
