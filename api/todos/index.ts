@@ -26,6 +26,7 @@ router.post("/", async (req, res) => {
             body: req.body.body,
             dueDate: req.body.dueDate,
             title: req.body.title,
+            userId: 1,
         }
     })
     
